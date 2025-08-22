@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+class lengthD{
+    float cm;
+    public:
+    void setcm(float a)
+    {
+        cm=a;
+    }
+    void display()
+    {
+        cout<<"after conversion"<<endl;
+        cout<<cm<<"cm";
+    }
+};
+class lengthS{
+    float meter;
+    public:
+    void get()
+    {
+        cout<<"enter certain meter"<<endl;
+        cin>>meter;
+    }
+    operator lengthD()
+    {
+        float cm=meter*100;
+        lengthD temp;
+        temp.setcm(cm);     
+        return temp;
+    }
+};
+int main()
+{
+    lengthS ls;
+    ls.get();
+    lengthD ld;
+    ld=ls;
+    ld.display();
+    return 0;
+}
